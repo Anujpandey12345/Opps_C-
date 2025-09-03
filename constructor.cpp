@@ -6,10 +6,23 @@ class hero{
     public:
     char level;
     void print(){
-        cout<<"Level is : "<< level << endl;
+        cout<<"Health is : "<< this->health << endl;
+        cout<<"Level is : "<< this->level << endl;
     }
+    //Default Constructor....
     hero() {
         cout<<"Constructor called !!"<<endl;
+    }
+    //Parameterized Constructor......
+    hero(int health, char level){
+        cout<<"this -> "<< this << endl;
+        this -> health = health;
+        this -> level = level;
+    }//Copy Constructor.......
+    hero(hero& temp){
+        cout<<"Copy Constructor Called .........."<<endl;
+        this->health = temp.health;
+        this->level = temp.level;
     }
     int GetHealth(){
         return health;
@@ -25,41 +38,30 @@ class hero{
     }
 };
 int main(){
-    cout<<"Hi, This is before constructor call";
-    hero ramesh;
-    cout<<"Hi, This is After constructor call";
+
+
+    hero suresh;
+    suresh.SetHealth(70);
+    suresh.Setlevel('C');
+    suresh.print();
+    // Copy Constructor Called ..............
+    hero ritesh(suresh);
+    ritesh.print();
 
 
 
 
 
 
+    //For PArameterized ..........
+    // hero ramesh(10);
+    // cout<<"Address of Ramesh :: " << &ramesh <<endl;
+    // ramesh.GetHealth();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // cout<<"Hi, This is before constructor call";
+    // hero ramesh(20);
+    // cout<<"Hi, This is After constructor call";
     // //Static Allocation .......... 
     // hero a;
     // a.SetHealth(100);
