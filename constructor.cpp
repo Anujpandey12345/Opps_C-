@@ -1,17 +1,27 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 class hero{
     private:
     int health;
     public:
     char level;
+    char *name;
+
     void print(){
-        cout<<"Health is : "<< this->health << endl;
-        cout<<"Level is : "<< this->level << endl;
+        cout<<endl;
+        cout<<"[ ";
+        cout<<"Name is :" << this -> name <<" ,";
+        cout<<"Health is : "<< this->health << " ,";
+        cout<<"Level is : "<< this->level << " ]";
+        cout<<endl;
+        cout<<endl;
+        cout<<endl;
     }
     //Default Constructor....
     hero() {
         cout<<"Constructor called !!"<<endl;
+        name = new char[100];
     }
     //Parameterized Constructor......
     hero(int health, char level){
@@ -19,11 +29,11 @@ class hero{
         this -> health = health;
         this -> level = level;
     }//Copy Constructor.......
-    hero(hero& temp){
-        cout<<"Copy Constructor Called .........."<<endl;
-        this->health = temp.health;
-        this->level = temp.level;
-    }
+    // hero(hero& temp){
+    //     cout<<"Copy Constructor Called .........."<<endl;
+    //     this->health = temp.health;
+    //     this->level = temp.level;
+    // }
     int GetHealth(){
         return health;
     }
@@ -36,17 +46,57 @@ class hero{
     void Setlevel(char ch){
         level  = ch;
     }
+    void SetName(char name[]){
+        strcpy(this -> name, name);
+    }
 };
 int main(){
 
+    hero hero1;
+    hero1.SetHealth(90);
+    hero1.Setlevel('A');
+    char name[12] = "Anuj Pandey";
+    hero1.SetName(name);
+    hero1.print();
+    //Use default Copy constructor...
+    hero hero2(hero1);
+    //Second way to declare..
+    //hero hero2 = hero1;
+    hero2.print();
+    hero1.name[0] = 'N';
+    hero1.print();
+    hero2.print();
 
-    hero suresh;
-    suresh.SetHealth(70);
-    suresh.Setlevel('C');
-    suresh.print();
-    // Copy Constructor Called ..............
-    hero ritesh(suresh);
-    ritesh.print();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // hero suresh;
+    // suresh.SetHealth(70);
+    // suresh.Setlevel('C');
+    // suresh.print();
+    // // Copy Constructor Called ..............
+    // hero ritesh(suresh);
+    // ritesh.print();
 
 
 
