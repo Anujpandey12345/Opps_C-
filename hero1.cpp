@@ -17,26 +17,29 @@ class hero {
     }
     void print() {
         cout << "Name is :: " << this -> name << endl;
+        cout << endl;
     }
 
     void SetName(char name[]) {
         strcpy(this -> name, name);
-    }
-
+    } 
 };
 //Main Function .....
 int main() {
     hero h1;
     char name[14] = "Anuj Pandey";
     h1.SetName(name);
-    h1.print();
+    // h1.print();
     //Suppose We Create Another Object and Copy the Data; Let's What Happend With Us.
     hero h2(h1);
-    h2.print();
+    // h2.print();
     //Let's See we chnage the first letter from the Object One.
     h1.name[0] = 'L';
     h1.print();
     //Now we Print the Second Object(h2) then we seee that this is also change , for this is we want to no changes in object two then we Use **|| SALLOW COPY || 
+    h2.print();
+    h1 = h2;
+    h1.print();
     h2.print();
     return 0;
 }
